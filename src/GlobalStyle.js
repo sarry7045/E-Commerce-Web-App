@@ -87,7 +87,7 @@ ${"" /* resuable code section  */}
   grid-template-columns: repeat(5, 1fr);
 }
   .common-heading {
-      font-size: 3.8rem;
+      font-size: 3.6rem;
       font-weight: 600;
       margin-bottom: 6rem;
       text-transform: capitalize;
@@ -97,7 +97,7 @@ ${"" /* resuable code section  */}
       text-transform: uppercase;
       // color: #5138ee;
       color: #ffd600;
-      font-size:1.90rem
+      font-size:1.80rem
     }
    .caption {
       position: absolute;
