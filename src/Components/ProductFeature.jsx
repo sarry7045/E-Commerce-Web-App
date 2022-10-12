@@ -1,12 +1,25 @@
 import { useProductContact } from "../Context/ProductContext";
 import styled from "styled-components";
 import SingleProductCard from "./SingleProductCard";
+import Loader from "react-loader-spinner";
 
 const FeatureProduct = () => {
   const { isLoading, featureProducts } = useProductContact();
 
   if (isLoading) {
-    return <div> ......Loading </div>;
+    return (
+      <>
+        <div
+          style={{
+            textAlign: "center",
+            justifyContent: "center",
+            display: "flex",
+          }}
+        >
+          <Loader type="Puff" color="#ffd600" height={550} width={80} />
+        </div>
+      </>
+    );
   }
 
   return (
