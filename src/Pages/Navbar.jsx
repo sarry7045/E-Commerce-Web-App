@@ -11,7 +11,7 @@ const Navbar = () => {
       <NavLink to="/">
         <img
           style={{ height: "4rem", width: "4rem" }}
-          src="favicon.png"
+          src="/favicon.png"
           alt="Logo"
         />
       </NavLink>

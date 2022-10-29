@@ -1,47 +1,34 @@
-import { useProductContact } from "../Context/ProductContext";
+import React from "react";
 import styled from "styled-components";
 import SingleProductCard from "./SingleProductCard";
-import Loader from "react-loader-spinner";
+import { motion } from "framer-motion";
 
-const FeatureProduct = () => {
-  const { isLoading, featureProducts } = useProductContact();
-
-  if (isLoading) {
-    return (
-      <>
-        <div
-          style={{
-            textAlign: "center",
-            justifyContent: "center",
-            display: "flex",
-          }}
-        >
-          <Loader type="Puff" color="#ffd600" height={550} width={80} />
-        </div>
-      </>
-    );
-  }
-
+const GridView = ({ products }) => {
   return (
     <Wrapper className="section">
-      <div className="container">
-        <div className="intro-data">Check Now!</div>
-        <div className="common-heading">Our Feature Services</div>
-        <div className="grid grid-three-column">
-          {featureProducts.map((curElem) => {
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.1, duration: 0.9 }}
+        className="navbar"
+      >
+        <div className="container grid grid-three-column">
+          {products.map((curElem) => {
             return <SingleProductCard key={curElem.id} {...curElem} />;
           })}
         </div>
-      </div>
+      </motion.div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
   padding: 8rem 0;
-  background-color: ${({ theme }) => theme.colors.bg};
   .container {
     max-width: 115rem;
+  }
+  .grid {
+    gap: 3.2rem;
   }
   figure {
     width: auto;
@@ -69,21 +56,10 @@ const Wrapper = styled.section`
       transform: scale(1.2);
     }
     img {
-      max-width: 90%;
+      max-width: 95%;
       margin-top: 1.5rem;
       height: 20rem;
       transition: all 0.3s linear;
-    }
-    .caption {
-      position: absolute;
-      top: 15%;
-      right: 10%;
-      text-transform: uppercase;
-      background-color: ${({ theme }) => theme.colors.bg};
-      color: ${({ theme }) => theme.colors.helper};
-      padding: 0.8rem 2rem;
-      font-size: 1.1rem;
-      border-radius: 2rem;
     }
   }
   .card {
@@ -98,12 +74,12 @@ const Wrapper = styled.section`
       justify-content: space-between;
       align-items: center;
     }
+    .card-data--price {
+      color: ${({ theme }) => theme.colors.helper};
+    }
     h3 {
       color: ${({ theme }) => theme.colors.text};
       text-transform: capitalize;
-    }
-    .card-data--price {
-      color: ${({ theme }) => theme.colors.helper};
     }
     .btn {
       margin: 2rem auto;
@@ -126,4 +102,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default FeatureProduct;
+export default GridView;

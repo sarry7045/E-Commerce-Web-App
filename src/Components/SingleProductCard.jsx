@@ -1,9 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import FormamatPrice from "./FormatPrice";
+import FormamatPrice from "../Helpers/FormatPrice";
 
 const SingleProductCard = (curElem) => {
   const { id, name, image, price, category } = curElem;
+
   return (
     <NavLink to={`/singleproduct/${id}`}>
       <div className="card">

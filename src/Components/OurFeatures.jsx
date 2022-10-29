@@ -95,7 +95,7 @@ const Wrapper = styled.section`
     border-radius: 50%;
     background-color: #fff;
     //  color: #5138ee;
-    color: #ffd600;
+    color: rgb(98 84 243);
   }
 `;
 

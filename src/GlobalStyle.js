@@ -24,6 +24,53 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-track {
    background-color: rgb(24 24 29);
 }
+
+.addToCartButton {
+  
+  background: rgb(98 84 243);
+  border-radius: 999px;
+  // box-shadow: #ffd600 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
+.addToCartButton1 {
+  
+  background: rgb(98 84 243);
+  border-radius: 999px;
+  // box-shadow: #ffd600 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
 body::-webkit-scrollbar-thumb {
  
   background: #fff;
@@ -96,7 +143,7 @@ ${"" /* resuable code section  */}
       margin-bottom: 0;
       text-transform: uppercase;
       // color: #5138ee;
-      color: #ffd600;
+      color: rgb(98 84 243);
       font-size:1.80rem
     }
    .caption {

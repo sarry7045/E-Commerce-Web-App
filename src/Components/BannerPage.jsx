@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { Button } from "./Button";
+import { Button } from "../Helpers/Button";
 import { motion } from "framer-motion";
 
 const MainPageCompo = ({ myData }) => {
@@ -86,7 +86,7 @@ const Wrapper = styled.section`
       width: 60%;
       height: 80%;
       // background-color: rgba(81, 56, 238, 0.4);
-      background-color: #ffd600;
+      background-color: rgb(98 84 243);
       position: absolute;
       left: 50%;
       top: -5rem;
@@ -109,7 +109,7 @@ const Wrapper = styled.section`
       top: 10%;
       /* bottom: 10%; */
       // background-color: rgba(81, 56, 238, 0.4);
-      background-color: #ffd600;
+      background-color: rgb(98 84 243);
     }
   }
 `;

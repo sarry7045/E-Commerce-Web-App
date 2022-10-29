@@ -1,5 +1,5 @@
 import React from "react";
-import MainPageCompo from "./MainPageCompo";
+import BannerPage from "../Components/BannerPage";
 
 const About = () => {
   const data = {
@@ -7,7 +7,7 @@ const About = () => {
   };
   return (
     <>
-      <MainPageCompo myData={data} />
+      <BannerPage myData={data} />
     </>
   );
 };
