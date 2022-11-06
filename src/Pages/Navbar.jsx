@@ -10,7 +10,7 @@ const Navbar = () => {
     <MainHeader>
       <NavLink to="/">
         <img
-          style={{ height: "4rem", width: "4rem" }}
+          style={{ height: "4.5rem", width: "4.5rem" }}
           src="/favicon.png"
           alt="Logo"
         />

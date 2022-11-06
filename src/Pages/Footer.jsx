@@ -15,7 +15,7 @@ const Footer = () => {
         <footer>
           <div className="container grid grid-four-column">
             <div className="footer-about">
-              <h3>Suraj Yadav</h3>
+              <h3>Shop Mart</h3>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
             </div>
             <div className="footer-subscribe">
@@ -86,7 +86,15 @@ const Footer = () => {
             <hr />
             <div className="container grid grid-two-column Reserved ">
               <p>
-                @{new Date().getFullYear()} Suraj Yadav. All Rights Reserved.
+                {new Date().getFullYear()} | All Rights Reserved | Created by
+                <a
+                  style={{ color: "rgb(98 84 243)" }}
+                  href="https://surajyadav.vercel.app/"
+                  target="_blank"
+                >
+                  {" "}
+                  Suraj Yadav
+                </a>
               </p>
               {/* <div>
                 <p>PRIVACY POLICY</p>
@@ -119,7 +127,7 @@ const Wrapper = styled.section`
       display: flex;
       gap: 2rem;
       div {
-        padding: 0.8rem;
+        padding: 0.9rem;
         border-radius: 50%;
         border: 1.5px solid ${({ theme }) => theme.colors.white};
         .icons {

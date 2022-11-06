@@ -16,7 +16,13 @@ const Services = () => {
               <h3> Super Fast and Free Delivery</h3>
             </div>
           </div>
-          <div className="services-2">
+          <div className="services-1">
+            <div>
+              <GiReceiveMoney className="icon" />
+              <h3> Super Fast and Free Delivery</h3>
+            </div>
+          </div>
+          {/* <div className="services-2">
             <div className="services-cloumn-2">
               <div>
                 <MdSecurity className="icon" />
@@ -29,7 +35,7 @@ const Services = () => {
                 <h3> Super Fast and Free Delivery</h3>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="services-3">
             <div>
               <RiSecurePaymentLine className="icon" />

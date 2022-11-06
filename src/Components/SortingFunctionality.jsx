@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { BsFillGridFill, BsList } from "react-icons/bs";
 import { useFilterContext } from "../Context/FilterContext";
@@ -6,27 +6,49 @@ import { useFilterContext } from "../Context/FilterContext";
 const SortingFunctionality = () => {
   const { filter_products, grid_view, gridView, listView, sorting } =
     useFilterContext();
+
+  function getWindowSize() {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  }
+
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
   return (
     <Wrapper className="sort-section">
       {/* 1st column  */}
-      <div className="sorting-list--grid">
-        <button
-          className={grid_view ? "active sort-btn" : "sort-btn"}
-          onClick={gridView}
-        >
-          <BsFillGridFill className="icon" />
-        </button>
+      {windowSize.innerWidth > 700 ? (
+        <div className="sorting-list--grid">
+          <button
+            className={grid_view ? "active sort-btn" : "sort-btn"}
+            onClick={gridView}
+          >
+            <BsFillGridFill className="icon" />
+          </button>
 
-        <button
-          className={!grid_view ? "active sort-btn" : " sort-btn"}
-          onClick={listView}
-        >
-          <BsList className="icon" />
-        </button>
-      </div>
+          <button
+            className={!grid_view ? "active sort-btn" : " sort-btn"}
+            onClick={listView}
+          >
+            <BsList className="icon" />
+          </button>
+        </div>
+      ) : null}
       {/* 2nd column  */}
       <div className="product-data">
-        <p>{`${filter_products.length} Product Available`}</p>
+        <p>{`${filter_products.length} Products Available`}</p>
       </div>
 
       {/* 3rd column  */}
@@ -43,9 +65,9 @@ const SortingFunctionality = () => {
             <option value="#" disabled></option>
             <option value="highest">Price (Highest)</option>
             <option value="#" disabled></option>
-            <option value="a-z">Price (A-Z)</option>
+            <option value="a-z">Sequence (A-Z)</option>
             <option value="#" disabled></option>
-            <option value="z-a">Price (Z-A)</option>
+            <option value="z-a">Sequence (Z-A)</option>
           </select>
         </form>
       </div>
@@ -77,8 +99,10 @@ const Wrapper = styled.section`
     }
   }
   .sort-selection .sort-selection--style {
-    padding: 0.5rem;
+    padding: 0.6rem;
     cursor: pointer;
+    border: 1.5px solid rgb(98 84 243);
+    width: 95%;
     .sort-select--option {
       padding: 0.4rem 0;
       cursor: pointer;

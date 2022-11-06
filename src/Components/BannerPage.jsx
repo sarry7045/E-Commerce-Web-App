@@ -20,13 +20,12 @@ const MainPageCompo = ({ myData }) => {
               <p className="intro-data" style={{ marginBottom: "0.1rem" }}>
                 Welcome to {name}
               </p>
-              <h1 style={{ fontSize: "54px" }}>Shop-Mart</h1>
+              <h1 style={{ fontSize: "50px" }}>Shop-Mart</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Distinctio unde optio quo ipsum, beatae, minus et quam obcaecati
                 nihil pariatur voluptatem quas cumque fugiat ex, maiores
-                temporibus ipsam accusamus architecto iste voluptas. Itaque,
-                iusto id,temporibus ipsam accusamus architecto iste voluptas.
+                temporibus ipsam accusamus architecto iste voluptas.
               </p>
               <NavLink>
                 <motion.div
@@ -55,7 +54,7 @@ const MainPageCompo = ({ myData }) => {
 };
 
 const Wrapper = styled.section`
-  padding: 12rem 0;
+  padding: 9rem 0;
   img {
     min-width: 10rem;
     height: 10rem;

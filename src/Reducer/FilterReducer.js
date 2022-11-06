@@ -1,10 +1,16 @@
 const filterReducder = (state, action) => {
   switch (action.type) {
     case "LOAD_FILTER_PRODUCTS":
+      let maxPriceArray = action.payload.map((curElem) => curElem.price);
+
+      let maxPrice = Math.max(...maxPriceArray);
+      console.log("maxPrice", maxPrice);
+
       return {
         ...state,
         filter_products: [...action.payload],
         all_products: [...action.payload],
+        filters: { ...state.filters, maxPrice, price: maxPrice },
       };
 
     case "SET_GRIDVIEW":
@@ -64,7 +70,7 @@ const filterReducder = (state, action) => {
     case "FILTER_PRODUCTS":
       let { all_products } = state;
       let tempFilterProduct = [...all_products];
-      const { text, category, company } = state.filters;
+      const { text, category, company, colors, price } = state.filters;
       if (text) {
         tempFilterProduct = tempFilterProduct.filter((curElm) => {
           return curElm.name.toLowerCase().includes(text);
@@ -82,9 +88,41 @@ const filterReducder = (state, action) => {
           (curElem) => curElem.company.toLowerCase() === company.toLowerCase()
         );
       }
+
+      if (colors !== "all") {
+        tempFilterProduct = tempFilterProduct.filter((curElem) =>
+          curElem.colors.includes(colors)
+        );
+      }
+
+      if (price === 0) {
+        tempFilterProduct = tempFilterProduct.filter(
+          (curElem) => curElem.price == price
+        );
+      } else {
+        tempFilterProduct = tempFilterProduct.filter(
+          (curElem) => curElem.price <= price
+        );
+      }
+
       return {
         ...state,
         filter_products: tempFilterProduct,
+      };
+
+    case "CLEAR_FILTERS":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          text: "",
+          category: "all",
+          company: "all",
+          colors: "all",
+          maxPrice: 0,
+          price: state.filters.maxPrice,
+          minPrice: state.filters.minPrice,
+        },
       };
 
     default:
