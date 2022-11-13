@@ -19,4 +19,4 @@ const ProductQuantityIncDec = ({ amount, setDecrease, setIncrease }) => {
   );
 };
 
-export default ProductQuantityIncDec;
+export default React.memo(ProductQuantityIncDec);

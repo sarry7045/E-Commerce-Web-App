@@ -113,4 +113,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default MainPageCompo;
+export default React.memo(MainPageCompo);

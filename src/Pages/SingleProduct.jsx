@@ -70,8 +70,6 @@ const SingleProduct = () => {
             </div>
             <div className="product-data">
               <h2 style={{ fontSize: "3rem" }}>{name}</h2>
-              {/* <p>{stars}</p>
-            <p>{reviews} reviews</p> */}
               <StarsRatingFunctionality stars={stars} reviews={reviews} />
               <p className="product-data-price">
                 MRP:

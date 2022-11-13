@@ -19,9 +19,6 @@ const SingleProductCard = (curElem) => {
             <p className="card-data--price">
               {<FormamatPrice price={price} />}
             </p>
-            {/* <p className="card-data--price">
-              {price}
-            </p> */}
           </div>
         </div>
       </div>
@@ -29,4 +26,4 @@ const SingleProductCard = (curElem) => {
   );
 };
 
-export default SingleProductCard;
+export default React.memo(SingleProductCard);

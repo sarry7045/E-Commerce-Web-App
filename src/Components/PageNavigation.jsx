@@ -26,4 +26,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default PageNavigation;
+export default React.memo(PageNavigation);

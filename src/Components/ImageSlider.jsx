@@ -21,7 +21,6 @@ const MyImage = ({ imgs = [{ url: "" }] }) => {
           );
         })}
       </div>
-      {/* 2nd column  */}
 
       <div className="main-screen">
         <img src={mainImage.url} alt={mainImage.filename} />
@@ -75,4 +74,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default MyImage;
+export default React.memo(MyImage);

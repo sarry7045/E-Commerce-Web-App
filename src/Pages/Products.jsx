@@ -2,19 +2,8 @@ import styled from "styled-components";
 import FilterFunctionality from "../Components/FilterFunctionality";
 import SortingFunctionality from "../Components/SortingFunctionality";
 import ProductsGridList from "../Components/ProductsGrid-List";
-// import { useEffect } from "react";
 
 const Products = () => {
-  // function refreshPage() {
-  //   window.location.reload(false);
-  // }
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     refreshPage();
-  //   }, 5000);
-  // }, []);
-
   return (
     <Wrapper>
       <div className="container grid grid-filter-column">

@@ -54,4 +54,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default StarsCompo;
+export default React.memo(StarsCompo);

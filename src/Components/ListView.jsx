@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import FormatPrice from "../Helpers/FormatPrice";
-import { Button } from "../Helpers/Button";
 import { motion } from "framer-motion";
 
 const ListView = ({ products }) => {
@@ -31,7 +30,6 @@ const ListView = ({ products }) => {
                   <p>{description.slice(0, 90)}...</p>
 
                   <NavLink to={`/singleproduct/${id}`} className="btn-main">
-                    {/* <Button className="btn">Read More</Button> */}
                     <motion.div
                       className="box"
                       whileHover={{ scale: 1.02 }}
@@ -48,7 +46,6 @@ const ListView = ({ products }) => {
                           marginTop: "1.8rem",
                           marginLeft: "-0.6rem",
                         }}
-                        //  className="btn"
                       >
                         Read More..
                       </button>
@@ -140,4 +137,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default ListView;
+export default React.memo(ListView);

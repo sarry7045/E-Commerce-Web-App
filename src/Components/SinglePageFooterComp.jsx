@@ -4,8 +4,10 @@ import styled from "styled-components";
 import { FaCheck } from "react-icons/fa";
 import { motion } from "framer-motion";
 import ProductQuantityIncDec from "./ProductQuantityIncDec";
+import { useCartContext } from "../Context/CartContext";
 
 const AddToCart = ({ product }) => {
+  const { addToCart } = useCartContext();
   const { id, colors, stock } = product;
   const [color, setcolor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
@@ -43,17 +45,13 @@ const AddToCart = ({ product }) => {
         setDecrease={setDecrease}
         setIncrease={setIncrease}
       />
-      <NavLink to="/cart">
+      <NavLink to="/cart" onClick={() => addToCart(id, color, amount, product)}>
         <motion.div
           className="box"
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 1000, damping: 10 }}
         >
-          <button
-            className="addToCartButton"
-            style={{ Size: "10rem" }}
-            //  className="btn"
-          >
+          <button className="addToCartButton" style={{ Size: "10rem" }}>
             Add To Cart
           </button>
         </motion.div>
@@ -109,4 +107,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default AddToCart;
+export default React.memo(AddToCart);

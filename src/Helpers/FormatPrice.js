@@ -1,3 +1,5 @@
+import React from "react";
+
 const FormatPrice = ({ price }) => {
   return Intl.NumberFormat("en-IN", {
     style: "currency",
@@ -6,4 +8,4 @@ const FormatPrice = ({ price }) => {
   }).format(price / 200);
 };
 
-export default FormatPrice;
+export default React.memo(FormatPrice);

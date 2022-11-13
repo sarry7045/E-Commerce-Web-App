@@ -1,21 +1,21 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./GlobalStyle";
 import Navbar from "./Pages/Navbar";
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import Products from "./Pages/Products";
-import Contact from "./Pages/Contact";
-import Cart from "./Pages/Cart";
-import SingleProduct from "./Pages/SingleProduct";
+// import Home from "./Pages/Home";
+// import About from "./Pages/About";
+// import Products from "./Pages/Products";
+// import Contact from "./Pages/Contact";
+// import Cart from "./Pages/Cart";
+// import SingleProduct from "./Pages/SingleProduct";
 import Footer from "./Pages/Footer";
-// const Home = React.lazy(() => import("./Components/Home"));
-// const Products = React.lazy(() => import("./Components/Products"));
-// const About = React.lazy(() => import("./Components/About"));
-// const Contact = React.lazy(() => import("./Components/Contact"));
-// const SingleProduct = React.lazy(() => import("./Components/SingleProduct"));
-// const Cart = React.lazy(() => import("./Components/Cart"));
+const Home = React.lazy(() => import("./Pages/Home"));
+const Products = React.lazy(() => import("./Pages/Products"));
+const About = React.lazy(() => import("./Pages/About"));
+const Contact = React.lazy(() => import("./Pages/Contact"));
+const SingleProduct = React.lazy(() => import("./Pages/SingleProduct"));
+const Cart = React.lazy(() => import("./Pages/Cart"));
 
 function App() {
   const theme = {
@@ -48,15 +48,17 @@ function App() {
         <Router>
           <GlobalStyle />
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/singleproduct/:id" element={<SingleProduct />} />
-            <Route path="*" element={<Home />} />
-          </Routes>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/singleproduct/:id" element={<SingleProduct />} />
+              <Route path="*" element={<Home />} />
+            </Routes>
+          </Suspense>
           <Footer />
         </Router>
       </ThemeProvider>

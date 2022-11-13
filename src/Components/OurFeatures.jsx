@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { TbTruckDelivery } from "react-icons/tb";
-import { MdSecurity } from "react-icons/md";
 import { GiReceiveMoney } from "react-icons/gi";
 import { RiSecurePaymentLine } from "react-icons/ri";
 
@@ -22,20 +21,6 @@ const Services = () => {
               <h3> Super Fast and Free Delivery</h3>
             </div>
           </div>
-          {/* <div className="services-2">
-            <div className="services-cloumn-2">
-              <div>
-                <MdSecurity className="icon" />
-                <h3> Super Fast and Free Delivery</h3>
-              </div>
-            </div>
-            <div className="services-cloumn-2">
-              <div>
-                <GiReceiveMoney className="icon" />
-                <h3> Super Fast and Free Delivery</h3>
-              </div>
-            </div>
-          </div> */}
           <div className="services-3">
             <div>
               <RiSecurePaymentLine className="icon" />

@@ -23,7 +23,6 @@ const FilterFunctionality = () => {
     }
 
     return (newValue = ["all", ...new Set(newValue)]);
-    // console.log("newValue", newValue);
   };
 
   const categoryOnlyData = getUniqueData(all_products, "category");
@@ -140,10 +139,6 @@ const FilterFunctionality = () => {
       </div>
 
       <div className="filter-clear">
-        {/* <Button className="btn" onClick={clearFilters}>
-          Clear Filters
-        </Button> */}
-
         <button
           className="addToCartButton"
           style={{ Size: "10rem", marginTop: "1.2rem" }}

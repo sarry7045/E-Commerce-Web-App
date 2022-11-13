@@ -102,4 +102,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default GridView;
+export default React.memo(GridView);
