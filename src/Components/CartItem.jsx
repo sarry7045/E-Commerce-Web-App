@@ -5,7 +5,8 @@ import FormatPrice from "../Helpers/FormatPrice";
 import ProductQuantityIncDec from "./ProductQuantityIncDec";
 
 const CartItem = ({ id, name, image, color, price, amount }) => {
-  const { removeItem } = useCartContext();
+  const { removeItem, cartProductDecrement, cartProductIncrement } =
+    useCartContext();
   const setDecrease = () => {
     // amount > 1 ? setAmount(amount - 1) : setAmount(1);
   };
@@ -42,8 +43,8 @@ const CartItem = ({ id, name, image, color, price, amount }) => {
 
       <ProductQuantityIncDec
         amount={amount}
-        setDecrease={setDecrease}
-        setIncrease={setIncrease}
+        setDecrease={() => cartProductDecrement(id)}
+        setIncrease={() => cartProductIncrement(id)}
       />
 
       <div className="cart-hide">

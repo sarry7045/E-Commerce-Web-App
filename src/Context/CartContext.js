@@ -25,6 +25,20 @@ const CartProvider = ({ children }) => {
     dispatch({ type: "ADD_TO_CART", payload: { id, color, amount, product } });
   };
 
+  const cartProductIncrement = (id) => {
+    dispatch({
+      type: "CART_PRODUCT_INCREMENT",
+      payload: id,
+    });
+  };
+
+  const cartProductDecrement = (id) => {
+    dispatch({
+      type: "CART_PRODUCT_DECREMENT",
+      payload: id,
+    });
+  };
+
   const removeItem = (id) => {
     dispatch({ type: "REMOVE_ITEM", payload: id });
   };
@@ -39,7 +53,14 @@ const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ ...state, addToCart, removeItem, clearCart }}
+      value={{
+        ...state,
+        addToCart,
+        removeItem,
+        clearCart,
+        cartProductIncrement,
+        cartProductDecrement,
+      }}
     >
       {children}
     </CartContext.Provider>
