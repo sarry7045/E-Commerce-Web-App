@@ -2,6 +2,7 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 import reducer from "../Reducer/CartReducer";
 
 const CartContext = createContext();
+
 const getLocalCartData = () => {
   let localCartdata = localStorage.getItem("ShopMartData");
   if (localCartdata === []) {
@@ -12,11 +13,11 @@ const getLocalCartData = () => {
 };
 
 const initialState = {
-  //   cart: [],
+  // cart: [],
   cart: getLocalCartData(),
   total_item: "",
   total_amount: "",
-  shipping_fee: 5000,
+  shipping_fee: 10000,
 };
 
 const CartProvider = ({ children }) => {
@@ -48,6 +49,8 @@ const CartProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    dispatch({ type: "CART_TOTAL_ITEM" });
+    dispatch({ type: "TOTAL_CART_PRICE" });
     localStorage.setItem("ShopMartData", JSON.stringify(state.cart));
   }, [state.cart]);
 

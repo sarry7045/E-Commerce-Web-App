@@ -48,7 +48,7 @@ function App() {
         <Router>
           <GlobalStyle />
           <Navbar />
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />

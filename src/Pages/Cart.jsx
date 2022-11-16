@@ -4,10 +4,12 @@ import { useCartContext } from "../Context/CartContext";
 import CartItem from "../Components/CartItem";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
+import FormatPrice from "../Helpers/FormatPrice";
 
 const Cart = () => {
-  const { cart, clearCart } = useCartContext();
+  const { cart, clearCart, total_amount, shipping_fee } = useCartContext();
   console.log("cart", cart);
+  console.log("total_amount,shipping_fee", total_amount, shipping_fee);
 
   // if (cart.length === 0) {
   //   return (
@@ -76,6 +78,33 @@ const Cart = () => {
               Clear Cart
             </button>
           </motion.div>
+        </div>
+
+        <div className="order-total--amount">
+          <div className="order-total--subdata">
+            <div>
+              <p> SubTotal:</p>
+              <p>
+                {" "}
+                <FormatPrice price={total_amount} />
+              </p>
+            </div>
+            <div>
+              <p>Shipping Fee:</p>
+              <p>
+                {" "}
+                <FormatPrice price={shipping_fee} />
+              </p>
+            </div>
+            <br />
+            <div>
+              <p>Order Total:</p>
+              <p>
+                {" "}
+                <FormatPrice price={shipping_fee + total_amount} />
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </Wrapper>
@@ -187,7 +216,7 @@ const Wrapper = styled.section`
     justify-content: flex-end;
     align-items: flex-end;
     .order-total--subdata {
-      border: 0.1rem solid #f0f0f0;
+      border: 0.2rem solid #f0f0f0;
       display: flex;
       flex-direction: column;
       gap: 1.8rem;
@@ -226,7 +255,7 @@ const Wrapper = styled.section`
       align-items: flex-start;
       .order-total--subdata {
         width: 100%;
-        border: 0.1rem solid #f0f0f0;
+        border: 0.2rem solid #f0f0f0;
         display: flex;
         flex-direction: column;
         gap: 1.8rem;
