@@ -80,7 +80,7 @@ const Contact = () => {
                 rows="10"
                 required
                 autoComplete="off"
-                placeholder="Enter you message"
+                placeholder="Enter your message"
               ></textarea>
 
               <input type="submit" value="send" />

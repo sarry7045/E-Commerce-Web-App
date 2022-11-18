@@ -27,7 +27,7 @@ const MainPageCompo = ({ myData }) => {
                 nihil pariatur voluptatem quas cumque fugiat ex, maiores
                 temporibus ipsam accusamus architecto iste voluptas.
               </p>
-              <NavLink>
+              <NavLink to="/products">
                 <motion.div
                   className="box"
                   whileHover={{ scale: 1.02 }}

@@ -105,6 +105,28 @@ const Cart = () => {
               </p>
             </div>
           </div>
+          {cart.length === 0 ? null : (
+            <motion.div
+              // className="box"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 1000, damping: 10 }}
+              style={{ marginTop: "2rem" }}
+            >
+              <a
+                href="https://surajyadav.vercel.app/"
+                target={"_blank"}
+                rel="noreferrer"
+              >
+                <button
+                  className="addToCartButton"
+                  style={{ Size: "10rem", backgroundColor: "Green" }}
+                  onClick={clearCart}
+                >
+                  Pay
+                </button>
+              </a>
+            </motion.div>
+          )}
         </div>
       </div>
     </Wrapper>

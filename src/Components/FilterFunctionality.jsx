@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FaCheck } from "react-icons/fa";
 import { useFilterContext } from "../Context/FilterContext";
@@ -29,19 +29,61 @@ const FilterFunctionality = () => {
   const companyOnlyData = getUniqueData(all_products, "company");
   const colorsData = getUniqueData(all_products, "colors");
 
+  function getWindowSize() {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  }
+
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
   return (
     <Wrapper>
-      <div className="filter-search">
-        <form onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="text"
-            name="text"
-            value={text}
-            onChange={updateFilterValue}
-            placeholder="Search"
-          />
+      {windowSize.innerWidth > 700 ? (
+        <div className="filter-search">
+          <form onSubmit={(e) => e.preventDefault()}>
+            <input
+              type="text"
+              name="text"
+              value={text}
+              onChange={updateFilterValue}
+              placeholder="Search"
+            />
+          </form>
+        </div>
+      ) : null}
+
+      {/* 
+      <div className="filter-company">
+        <h3>Category 1</h3>
+        <form action="#">
+          <select
+            name="category"
+            id="category"
+            className="filter-company--select"
+            onClick={updateFilterValue}
+          >
+            {categoryOnlyData.map((curElem, index) => {
+              return (
+                <option key={index} value={curElem} name="category">
+                  {curElem}
+                </option>
+              );
+            })}
+          </select>
         </form>
-      </div>
+      </div> */}
 
       <div className="filter-category">
         <h3>Category</h3>
@@ -83,45 +125,49 @@ const FilterFunctionality = () => {
         </form>
       </div>
 
-      <div className="filter-colors colors">
-        <h3>Colors</h3>
+      {windowSize.innerWidth > 700 ? (
+        <div className="filter-colors colors">
+          <h3>Colors</h3>
 
-        <div className="filter-color-style">
-          {colorsData.map((curColor, index) => {
-            if (curColor === "all") {
+          <div className="filter-color-style">
+            {colorsData.map((curColor, index) => {
+              if (curColor === "all") {
+                return (
+                  <button
+                    key={index}
+                    type="button"
+                    value={curColor}
+                    name="colors"
+                    // style={{ backgroundColor: curColor }}
+                    className="color-all--style"
+                    onClick={updateFilterValue}
+                  >
+                    {/* {colors === curColor ? "" : null} */}
+                    All
+                  </button>
+                );
+              }
               return (
                 <button
                   key={index}
                   type="button"
                   value={curColor}
                   name="colors"
-                  // style={{ backgroundColor: curColor }}
-                  className="color-all--style"
+                  style={{ backgroundColor: curColor }}
+                  className={
+                    colors === curColor ? "btnStyle active" : "btnStyle"
+                  }
                   onClick={updateFilterValue}
                 >
-                  {/* {colors === curColor ? "" : null} */}
-                  All
+                  {colors === curColor ? (
+                    <FaCheck className="checkStyle" size={13} />
+                  ) : null}
                 </button>
               );
-            }
-            return (
-              <button
-                key={index}
-                type="button"
-                value={curColor}
-                name="colors"
-                style={{ backgroundColor: curColor }}
-                className={colors === curColor ? "btnStyle active" : "btnStyle"}
-                onClick={updateFilterValue}
-              >
-                {colors === curColor ? (
-                  <FaCheck className="checkStyle" size={13} />
-                ) : null}
-              </button>
-            );
-          })}
+            })}
+          </div>
         </div>
-      </div>
+      ) : null}
 
       <div className="filter_price">
         <h3>Price</h3>
