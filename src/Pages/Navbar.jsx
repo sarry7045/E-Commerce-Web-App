@@ -4,10 +4,13 @@ import { NavLink } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { useCartContext } from "../Context/CartContext";
+import { useAuth0 } from "@auth0/auth0-react";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [menuIcon, setMenuIcon] = useState();
   const { total_item } = useCartContext();
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
   return (
     <MainHeader>
       <NavLink to="/">
@@ -56,6 +59,49 @@ const Navbar = () => {
                 Contact
               </NavLink>
             </li>
+
+            {isAuthenticated && <p> {user.name}</p>}
+
+            {isAuthenticated ? (
+              <li>
+                {/* <button
+                  onClick={() => logout({ returnTo: window.location.origin })}
+                >
+                  Log out
+                </button> */}
+
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 1000, damping: 10 }}
+                >
+                  <button
+                    onClick={() => logout({ returnTo: window.location.origin })}
+                    className="addToCartButton"
+                    style={{ Size: "10rem" }}
+                  >
+                    Logout
+                  </button>
+                </motion.div>
+              </li>
+            ) : (
+              <li>
+                {/* <button onClick={() => loginWithRedirect()}>Log In</button> */}
+
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 1000, damping: 10 }}
+                >
+                  <button
+                    onClick={() => loginWithRedirect()}
+                    className="addToCartButton"
+                    style={{ Size: "10rem" }}
+                  >
+                    Login
+                  </button>
+                </motion.div>
+              </li>
+            )}
+
             <li>
               <NavLink to="/cart" className="navbar-link cart-trolley--link">
                 <FiShoppingCart className="cart-trolley" />
