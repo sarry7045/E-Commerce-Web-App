@@ -3,18 +3,22 @@ import reducer from "../Reducer/CartReducer";
 
 const CartContext = createContext();
 
-// const getLocalCartData = () => {
-//   let localCartdata = localStorage.getItem("ShopMartData");
-//   if (localCartdata === []) {
-//     return [];
-//   } else {
-//     return JSON.parse(localCartdata);
-//   }
-// };
+const getLocalCartData = () => {
+  let localCartdata = localStorage.getItem("ShopMartData");
+  // if (localCartdata === []) {
+  //   return [];
+  // } else {
+  //   return JSON.parse(localCartdata);
+  // }
+
+  const parsedData = JSON.parse(localCartdata);
+  if (!Array.isArray(parsedData)) return [];
+  return parsedData;
+};
 
 const initialState = {
-  cart: [],
-  // cart: getLocalCartData(),
+  // cart: [],
+  cart: getLocalCartData(),
   total_item: "",
   total_amount: "",
   shipping_fee: 10000,
