@@ -7,7 +7,7 @@ const connectDB = require("./DB/ConnectDB.js");
 const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
-  res.send("Shop Mart API");
+  res.send("Shopping API   =   /products");
 });
 
 app.use("/products", ProductsRoutes);

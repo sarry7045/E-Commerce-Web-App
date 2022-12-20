@@ -51,5 +51,19 @@
     "price": 6000,
     "featured": false,
     "company": "MicroMax"
+  },
+  
+  {
+    "name": "Nokia M1",
+    "price": 1000,
+    "featured": false,
+    "company": "Nokia"
+  },
+  {
+    "name": "Realme M15",
+    "price": 12000,
+    "featured": false,
+    "company": "RealME"
   }
 ]
+
