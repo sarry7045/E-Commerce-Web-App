@@ -1,4 +1,6 @@
+require("dotenv").config()
 const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
 const ProductsRoutes = require("./Routes/App");
 const connectDB = require("./DB/ConnectDB.js");
@@ -8,10 +10,12 @@ app.get("/", (req, res) => {
   res.send("Shop Mart API");
 });
 
-app.use("/api/products", ProductsRoutes);
+app.use("/products", ProductsRoutes);
+
+mongoose.set('strictQuery', false);
 
 const start = async () => {
-  await connectDB();
+  await connectDB(process.env.MONGODB_URL);
   try {
     app.listen(PORT, () => {
       console.log(`The Server is Running on PORT ${PORT}`);
