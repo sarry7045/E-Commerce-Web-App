@@ -16,13 +16,6 @@ Some of the key features of our shopping app project include:
 - **Product details**
 - **Shopping Cart**
 
-To run the project, follow these steps:
-
-Clone the repository
-Navigate to the project directory in your terminal
-Install dependencies using npm install
-Start the server using npm start
-Open http://localhost:3000 to view the app in the browser
 
 ## Screenshots 🖼
 
@@ -38,6 +31,7 @@ Open http://localhost:3000 to view the app in the browser
 ## ToDo
 
 - [ ] Working on Realtime API's Products and Multiple user's Login and Registraion.
+
 
 ## Acknowledgements 🙏
 
