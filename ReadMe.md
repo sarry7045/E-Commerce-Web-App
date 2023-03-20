@@ -30,7 +30,7 @@ Some of the key features of our shopping app project include:
 
 ## ToDo
 
-- [ ] Working on Realtime API's Products and Multiple user's Login and Registraion.
+- [ ] Working on Realtime API's Products and Multiple user's Login and Registraion..
 
 
 ## Acknowledgements 🙏
